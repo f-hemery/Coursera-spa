@@ -6,8 +6,11 @@
 
     angular.module('myFirstApp', [])
 
-        .controller('MyFirstController', function () {
-
+        .controller('MyFirstController', function ($scope) {
+            $scope.name = 'Fred.H';
+            $scope.sayHello = function () {
+                return 'Hello Monde ';
+            }
         });
 
 })();
