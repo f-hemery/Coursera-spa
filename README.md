@@ -4,7 +4,7 @@
 * [Assignement module 2](https://f-hemery.github.io/Coursera-spa/ass-module2/index.html)
 
 
-Commande pour démarrer borwser-sync :
+Commande pour démarrer browser-sync :
 
 ```
 browser-sync start --server --directory --files "**.*"

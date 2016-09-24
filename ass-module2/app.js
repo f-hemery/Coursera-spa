@@ -48,6 +48,10 @@
                 quantity: "18"
             },
             {
+                name: "Tea",
+                quantity: "12"
+            },
+            {
                 name: "Chocolate",
                 quantity: "5"
             }
