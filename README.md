@@ -4,6 +4,8 @@
 * [Assignement module 2](https://f-hemery.github.io/Coursera-spa/ass-module2/index.html)
 * [Assignement module 3](https://f-hemery.github.io/Coursera-spa/ass-module3/index.html)
 
+[github](https://github.com/f-hemery/Coursera-spa)
+
 
 Commande pour démarrer browser-sync :
 

@@ -8,7 +8,6 @@
         .controller('NarrowItDownController', NarrowItDownController)
         .service('MenuSearchService', MenuSearchService)
         .constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
-        // .directive('shoppingList', ShoppingList)
         .directive('foundItems', FoundItems);
 
 
@@ -31,7 +30,7 @@
         var narrowCtrl = this;
 
         narrowCtrl.itemSearched = "";
-        narrowCtrl.found = [];
+        narrowCtrl.found = [{}];
 
         narrowCtrl.setFoundItems = function () {
             if (narrowCtrl.itemSearched.trim().length == 0) {
@@ -44,7 +43,7 @@
                 console.log("response " + response);
                 narrowCtrl.found = response;
             }).catch(function (error) {
-                console.log(error.message);
+                // console.log(error.message);
                 narrowCtrl.found = [];
             });
         }
@@ -75,7 +74,7 @@
                 console.log(foundItems);
                 deferred.resolve(foundItems);
             }).catch(function (errorResponse) {
-                console.log(errorResponse);
+                // console.log(errorResponse);
                 deferred.reject(foundItems);
             });
             return deferred.promise;
