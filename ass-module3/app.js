@@ -7,7 +7,7 @@
     angular.module('NarrowItDownApp', [])
         .controller('NarrowItDownController', NarrowItDownController)
         .service('MenuSearchService', MenuSearchService)
-        .constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
+        .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
         .directive('foundItems', FoundItems);
 
 
@@ -30,11 +30,11 @@
         var narrowCtrl = this;
 
         narrowCtrl.itemSearched = "";
-        narrowCtrl.found = [{}];
+        narrowCtrl.found = "";
 
         narrowCtrl.setFoundItems = function () {
             if (narrowCtrl.itemSearched.trim().length == 0) {
-                narrowCtrl.found = [];
+                narrowCtrl.found = null;
                 return;
             }
             var promise = MenuSearchService.getMatchedMenuItems(narrowCtrl.itemSearched);
@@ -43,16 +43,14 @@
                 console.log("response " + response);
                 narrowCtrl.found = response;
             }).catch(function (error) {
-                // console.log(error.message);
-                narrowCtrl.found = [];
+                console.log(error.message);
+                narrowCtrl.found = null;
             });
         }
 
         narrowCtrl.removeItem = function (index) {
             narrowCtrl.found.splice(index, 1);
         }
-
-
     }
 
 
@@ -74,7 +72,7 @@
                 console.log(foundItems);
                 deferred.resolve(foundItems);
             }).catch(function (errorResponse) {
-                // console.log(errorResponse);
+                console.log(errorResponse);
                 deferred.reject(foundItems);
             });
             return deferred.promise;
