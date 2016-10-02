@@ -50,6 +50,8 @@
 
         narrowCtrl.removeItem = function (index) {
             narrowCtrl.found.splice(index, 1);
+            if (narrowCtrl.found.length === 0)
+                narrowCtrl.found = null;
         }
     }
 
