@@ -42,6 +42,8 @@
             promise.then(function (response) {
                 console.log("response " + response);
                 narrowCtrl.found = response;
+                if (narrowCtrl.found.length === 0)
+                    narrowCtrl.found = null;
             }).catch(function (error) {
                 console.log(error.message);
                 narrowCtrl.found = null;
