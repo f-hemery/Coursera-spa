@@ -24,11 +24,14 @@
 
             .state('categories', {
                 url: '/categories',
-                templateUrl: 'src/manuApp/templates/categories.template.html',
-                controller: 'MainShoppingListController as mainList',
+/*
+                template: '<h3>Les catégories</h3>',
+*/
+                templateUrl: 'src/menuApp/templates/all-categories.template.html',
+                controller: 'CategoriesController as catList',
                 resolve: {
-                    items: ['ShoppingListService', function (ShoppingListService) {
-                        return ShoppingListService.getItems();
+                    items: ['MenuDataService', function (MenuDataService) {
+                        return MenuDataService.getAllCategories();
                     }]
                 }
             })
