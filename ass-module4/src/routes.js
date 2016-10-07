@@ -24,9 +24,6 @@
 
             .state('categories', {
                 url: '/categories',
-/*
-                template: '<h3>Les catégories</h3>',
-*/
                 templateUrl: 'src/menuApp/templates/all-categories.template.html',
                 controller: 'CategoriesController as catList',
                 resolve: {
@@ -35,7 +32,16 @@
                     }]
                 }
             })
-
+            .state('items', {
+                url: '/items/{categorie}',
+                templateUrl: 'src/menuApp/templates/items-of-categorie.template.html',
+                controller: 'ItemsController as itemsList',
+                resolve: {
+                    items: ['MenuDataService','$stateParams', function (MenuDataService, $stateParams) {
+                        return MenuDataService.getItemsForCategory($stateParams.categorie);
+                    }]
+                }
+            })
     };
 
 })();
